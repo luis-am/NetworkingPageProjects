@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.encabezado{
+    margin: auto;
+    margin-top: 5px;
+    width: 95%;
+    height: 450px;
+    background: url(../img/banner.jpg);
+    border: 5px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:flex-end;
+}
+
+.lista_desordenada1{
+    margin-bottom: 20px;
+    list-style-type: none;
+    display: flex;
+}
+
+li{
+    font-weight: bold;
+    font-size: 20px;
+    /* font-style: italic; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-inline: 30px;
+}
+
+a{
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    color: antiquewhite;
+    text-decoration: none;
+    box-shadow: 3px 3px gray;
+}
+
+a:hover{
+    background-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+a:active{
+    background-color: orange;
+}
+
+a:visited{
+    color: lightblue;
+}
+
+.informacion{
+    width: 95%;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+}
+
+img{
+    width: 100px;
+    padding: 2px;
+}
+
+p{
+    font-family: monospace;
+    font-style:normal;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: justify;
+    margin-inline: 30px;
+}
+
+footer{
+    margin-bottom: 10px;
+    margin-top: 3px;
+    text-align: end;
+    margin-right: 65px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+}
