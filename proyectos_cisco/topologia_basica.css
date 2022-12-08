@@ -1,0 +1,81 @@
+.main{
+    margin: auto;
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+    width: 99%;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid;
+    background-color: black;
+    color: white;
+}
+
+
+/* --------------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+/* Editando el encabezado principal donde está el título y los dos botones de regreso y home. */
+.cabeza{
+    display: flex;
+    justify-content: space-between;
+}
+ul{
+    list-style-type: none;
+    margin-right: 30px;
+    display: flex;
+}
+.cabeza ul li{
+    /* margin-inline: 5px; */
+    padding: 5px;
+}
+.cabeza img{
+    border-color: aqua;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+
+/* --------------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+/* Editando el texto del titulo principal. */
+h1{
+    margin-left: 30px;
+    font-family: old english text mt;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+/* --------------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+/* Editando los textos resaltados en rojo. */
+b{
+    color: red;
+    font-style: italic;
+}
+
+
+/* --------------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+/* Editando los parrafos. */
+p{
+    width: 80%;
+    margin: auto;
+    text-align: justify;
+    font-family: liberation serif;
+    font-size: 25px;
+    letter-spacing: 0.2px;
+}
+
+
+/* --------------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+/* Editando las imagenes del tema principal. */
+img{
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 2px solid;
+}

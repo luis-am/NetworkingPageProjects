@@ -1,0 +1,43 @@
+.main{
+    margin: auto;
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+    width: 99%;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid;
+    background-color: black;
+    color: white;
+}
+
+h1{
+    margin-left: 30px;
+    font-family: old english text mt;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: underline;
+    
+}
+
+b{
+    color: red;
+    font-style: italic;
+}
+
+p{
+    width: 80%;
+    margin: auto;
+    text-align: justify;
+    font-family: liberation serif;
+    font-size: 25px;
+    letter-spacing: 0.2px;
+}
+
+img{
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 2px solid;
+}

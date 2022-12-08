@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="topologia_basica.css">
+    <title>topologia_basica</title>
+</head>
+<body>
+    <div class="main">
+        <div class="cabeza">
+            <h1>Topología básica</h1>
+            <ul>
+                <p><a href="../paginas/cisco.html""><img src="../img/back_button.png" width="50px"></a></p>
+                <p><a href="../index.html""><img src="../img/home_button.jpg" width="50px"></a></p>
+            </ul>
+        </div>
+        <p>Haremos una topología básica con un router Cisco, en la que una interface está conectada a la red local <b>172.16.10.0/24</b> y a su vez por va a asignar direcciones dinámicas a los tres clientes. Por el otro lado la interface <b>g0/0</b> estará conectado a mi interface virtual, que simulará una salida a internet. Para eso se configurará NAT en el router.
+        Veremos que los clientes luego podrán tener acceso a internet.</p>    
+        <img src="../img/cisco/topologia_basica/topologia_general.jpg" width="700px" alt="topologia_basica">
+
+        <p>Primero conectaremos los dispositivos tal como se muestra en la figura. En este caso estamos haciendo uso del software GNS3, en donde los elementos que se ven son un router, switch, 3 máquinas clientes basados en Linux (son contenedores disponibles en la página de GNS3, muy útiles a la hora de hacer pruebas rápidas sin necesitar de estar integrando máquinas virtuales ya que consumen mucha RAM y CPU.)</p>
+        
+        <p>Ahora pasamos a configurar el router. Entramos en la consola, para mi caso estoy usando SUPERPUTTY, que me permite abrir varias sesiones al mismo tiempo de manera ilimitada. Como se ve en la figura también se muestra las terminales de las pc's clientes.</p>
+        <img src="../img/cisco/topologia_basica/putty.jpg" width="500px" alt="putty">
+
+        <p></p>
+    </div>
+</body>
+</html>

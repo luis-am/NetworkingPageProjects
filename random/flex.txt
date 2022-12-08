@@ -1,0 +1,16 @@
+display: flex;
+flex-direction;
+
+justify-content:
+start(default) | center | end | space-evenly | space-between | space-around
+
+align-items: stretch(default) | flex-start | flex-end | center | baseline
+
+
+flex-wrap
+flex-shrink
+flex-grow
+flex: 1 0 200px
+    1: grow
+    0: shrink
+    200px: flex-basis

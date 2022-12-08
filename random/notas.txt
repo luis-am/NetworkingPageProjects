@@ -1,0 +1,375 @@
+<link rel="shortcut icon" href="img/camaleon.ico" type="image/x-icon">
+h2, h3, h4, h5 {
+    color: red;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p cite {
+    color: blueviolet;
+    font-size: 20px;
+}
+
+.luis {
+    color: green;
+    font-weight: bolder;
+}
+
+p .alejandro {
+    color: aqua;
+    font-style: italic;
+    font-weight: bold;
+}
+
+a[href="https://www.google.com"] {
+    color: darkred;
+    font-weight: bold;
+    /* font-style: oblique; */
+}
+
+background: url(../img/camaleon.png);
+background-repeat: repeat-x;
+background-attachment: fixed;
+background-position: 50% 10%;
+
+.caja {
+    position: relative;
+    top: ;
+    bottom: ;
+    left: ;
+    right: ;
+}
+
+color: rgba(0,0,0,.2);
+
+p {
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: left;
+    line-height: 20px;
+    /* text-decoration: line-through; */
+    text-transform: capitalize;
+    /* letter-spacing: 5px; */
+    word-spacing: 10px;
+    text-shadow: 2px 2px 2px yellow;
+}
+
+a {
+    font-size: 20px;
+    /* color: black; */
+    text-decoration: none;
+    margin: 2px;
+    /* padding: 5px; */
+}
+
+a:link {
+    color: green;
+    font-size: 15px;
+}
+
+a:hover {
+    text-decoration: underline;
+    /* font-size: 30px; */
+    background: black;
+    color: white;
+    border-radius: 10px;
+}
+
+a:active {
+    background-color: chartreuse;
+    color: red;
+}
+
+a:visited {
+    text-decoration: line-through;
+}
+
+a {
+    font-size: 20px;
+    /* color: black; */
+    text-decoration: none;
+    margin: 10px 10px;
+    display: inline-block;
+    /* padding: 5px; */
+    background: lightblue;
+    color: white;
+    padding: 5px 5px;
+    box-shadow: 2px 5px black;
+}
+
+a:hover {
+    box-shadow: 2px 2px gray;
+}
+
+a:active {
+    box-shadow: none;
+}
+
+div {
+    width: 100%;
+}
+
+img {
+    width: 300px;
+    /* width: 200px; */
+    height: auto;
+    /* margin: auto; */
+    display: block;
+    border-radius: 20px;
+    /* box-shadow: 5px 5px 0px black; */
+    padding: 10px;
+    border: 5px solid black;
+}
+
+ul {
+    list-style-type: circle;
+    /* list-style-position: inside; */
+    list-style-position: outside;
+}
+
+ol {
+    /* list-style-type: decimal-leading-zero; */
+    /* list-style-type: upper-latin; */
+    /* list-style-type: upper-roman; */
+}
+
+
+.menu {
+    width: 100%;
+    background-color: black;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu li a {
+    padding: 10px 20px;
+    display: inline-block;
+    color: white;
+}
+
+.menu li a:hover {
+    color: maroon;
+    background: red;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+header, .main, footer {
+    background: #fff;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+header nav {
+    background-color: greenyellow;
+    overflow: hidden;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    float: left;
+}
+
+header nav ul li a {
+    padding: 10px 20px;
+    display: block;
+    color: red;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    color: black;
+    background: beige;
+}
+
+.main .articles {
+    width: 68.5%;
+    float: left;
+    margin-right: 1.5%;
+}
+
+.main .articles article{
+    padding: 20px;
+    background-color: burlywood;
+    margin-bottom: 20px;
+}
+
+aside {
+    width: 30%;
+    background-color: aquamarine;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: forestgreen;
+    color: hotpink;
+    clear: both;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;    
+}
+
+
+h1 {
+    text-align: center;
+    color: steelblue;
+}
+
+.flex-container {
+    width: 500px;
+    height: 300px;
+    background-color: lightblue;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.flex-item {
+    background-color: tomato;
+    color: #fff;
+    /* width: 100px; */
+    /* height: 100px; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.flex-item:nth-child(odd){
+    background-color: teal;
+}   
+
+.flex-item:nth-child(2){
+    font-size: 3em;
+    align-self: center;
+}
+
+img {
+    align-self: flex-end;
+}
+
+footer {
+    padding-top: 15px;
+    text-align: center;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+h1 {
+    text-align: center;
+    color: steelblue;
+}
+
+/* --- Aquí empieza el bloque flexbox ---  */
+header {
+    height: 150px;
+    background: #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-self: flex-end;
+}
+
+ul li {
+    background-color: #eee;
+    color: black;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 1.3em;
+    padding: 2.5px;
+}
+
+
+img {
+    border-radius: 50%;
+}
+
+
+footer {
+    padding-top: 15px;
+    text-align: center;
+}
+
+flex-basis
+flex-grow
+flex-shrink
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    background: #ccc;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+    background-color: antiquewhite;
+    margin: auto;
+    display: flex;
+    /* align-items: center; */
+}
+
+.item1 {
+    background-color: steelblue;
+    /* width: 150px; */
+    /* margin: 10px; */
+    /* height: 200px; */
+    display: flex;
+    color: white;
+    justify-content: center;
+    flex-basis: 100px;
+    /* flex-grow: 0; */
+    align-items: center;
+}
+
+.item2  {
+    background-color: blueviolet;
+    /* height: 200px; */
+    /* width: 150px; */
+    flex-basis: 100px;
+    /* flex-grow: 4; */
+    /* margin: 10px; */
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+}
+    &:nth-child(even){
+        flex-grow: 1;
+    }
