@@ -40,7 +40,7 @@ ul{
 /* Editando el texto del titulo principal. */
 h1{
     margin-left: 30px;
-    font-family: old english text mt;
+    font-family: old english text mt, 'comic sans';
     font-size: 50px;
     font-weight: bold;
     text-decoration: underline;
