@@ -10,7 +10,7 @@
 <body>
     <div class="main">
         <div class="cabeza">
-            <h1>Topología básica</h1>
+            <h1>Topología básica (DHCP y NAT)</h1>
             <ul>
                 <p><a href="../paginas/cisco.html""><img src="../img/back_button.png" width="50px"></a></p>
                 <p><a href="../index.html""><img src="../img/home_button.jpg" width="50px"></a></p>
@@ -24,8 +24,100 @@
         
         <p>Ahora pasamos a configurar el router. Entramos en la consola, para mi caso estoy usando SUPERPUTTY, que me permite abrir varias sesiones al mismo tiempo de manera ilimitada. Como se ve en la figura también se muestra las terminales de las pc's clientes.</p>
         <img src="../img/cisco/topologia_basica/putty.jpg" width="500px" alt="putty">
+        
+        <p>Ahora pasamos a las configuraciones básicas como el nombre del dispositivo, la asignación de las direcciones IP de la interface correspondiente.</p>
 
-        <p></p>
+        <code>
+            Router(config)#hostname R1
+            R1(config)#interface g0/1
+            R1(config-if)#description Conectado a Red Lan
+            R1(config-if)#ip address 172.16.10.1 255.255.255.0
+            R1(config-if)#no shutdown
+            R1(config-if)#interface g0/0
+            R1(config-if)#description Conectado a Internet
+            R1(config-if)#ip address 192.168.10.50 255.255.255.0
+            R1(config-if)#no shutdown
+        </code>
+
+        <p>Ahora pasamos a configurar el servicio DHCP en la interface g0/1, antes de eso excluimos las 10 primeras direcciones. Es decir los clientes empezarán a tener IP a partir de <b>172.16.10.11</b>. se coloca un nombre al pool de direcciones, en este caso le he llamado <b>LAN_NET</b>, y los parámetros de red, gateway y los servidores DNS de google.</p>
+
+        <code>
+            R1(config)#ip dhcp excluded-address 172.16.10.1 172.16.10.10
+            R1(config)#ip dhcp pool LAN_NET
+            R1(dhcp-config)#network 172.16.10.0 255.255.255.0
+            R1(dhcp-config)#default-router 172.16.10.1
+            R1(dhcp-config)#dns-server 8.8.8.8
+        </code>
+
+        <p>Si vemos en la configuración del adaptador de red del cliente PC1 se muestra que está configurado para DHCP. Luego ejecutamos el comando <b>ip add</b> y vemos que ya tiene asignada la IP gracias al router R1.</p>
+
+        <img src="../img/cisco/topologia_basica/dhcp_config.jpg" alt="dhcp_config" width="500px">
+        <img src="../img/cisco/topologia_basica/ip_add.jpg" alt="ip_add" width="600px">
+        <br>
+        <p>Mostrando la IP de PC2:</p>
+
+        <img src="../img/cisco/topologia_basica/dhcp_config2.jpg" alt="dhcp_config2" width="500px">
+        
+        <p>
+            Mostrando las IP's alquiladas a los clientes en el Router con el comando <b>'show ip dhcp binding'</b>.
+        </p>
+
+        <img src="../img/cisco/topologia_basica/binding.jpg" alt="binding" width="500px">
+
+        <p>
+            Ahora pasaremos a configurar NAT en el router.
+            Primero crearemos el ACL de tipo estándar identificando la subred interna con el nombre de <b>LAN_TO_NET</b>, con su respectivo wildcard.
+        </p>
+
+        <code>
+            R1(config)#ip access-list standard LAN_TO_NET
+            R1(config-std-nacl)#permit 172.16.10.0 0.0.0.255
+            R1(config-std-nacl)#exit
+        </code>
+
+        <p>
+            Ahora asociamos la lista de control de acceso a NAT, en este caso se va a tratar de un NAT overload. es decir las direcciones se van a traducir a la <b>interface g0/0</b>. Los puertos de origen van a variar por cada cliente cuando quieran comunicarse con algún servidor de internet.
+            Luego de eso ejecutamos el comando que identifica la interface si es NAT salida o entrada. En este caso como la interface <b>g0/0</b> está conectando a internet se le especifica <b>outside</b> y la interface interna <b>inside</b>.
+        </p>
+
+        <code>
+            R1(config)#ip nat inside source list LAN_TO_NET interface g0/0 overload
+            R1(config)#int g0/0
+            R1(config-if)#ip nat outside
+            R1(config-if)#int g0/1
+            R1(config-if)#ip nat inside
+            R1(config-if)#exit
+        </code>
+
+        <p>
+            Ahora antes de probar conectividad a internet, no nos olvidemos de algo, la ruta estática predeterminada en el router.
+            En este caso la IP del siguiente salto es la IP de mi adaptador virtual VMWare que es <b>192.168.10.254</b>.
+            Añadimos dos comandos más al router para que haga consultas DNS, y como servidor DNS estamos poniendo a Google.
+        </p>
+
+        <code>
+            R1(config)#ip route 0.0.0.0 0.0.0.0 192.168.10.254
+            R1(config)#ip domain-lookup
+            R1(config)#ip name-server 8.8.8.8
+            R1(config)#end
+        </code>
+
+        <p>
+            Probamos conectividad a internet desde el router haciendo ping a google y cibertec. Y luego realizamos ping desde las máquinas clientes. En las figuras se muestra que hay conectividad exitosa a internet.
+        </p>
+
+        <img src="../img/cisco/topologia_basica/ping.jpg" alt="ping" width="600px">
+        <img src="../img/cisco/topologia_basica/comprobacion.jpg" alt="comprobacion" width="1000px">
+
+        <p>
+            Podemos visualizar las traducciones de las IP's de los clientes a la IP de la interface externa del router con el comando <b>'show ip nat translations'</b>. Recordemos que las IP de tipo <b>inside local</b> son las que se van a traducir, que normalmente es la red interna. La <b>inside global</b> por lo general es la IP pública. Podría ser un pool, en este caso solo se ha configurado para que todas las IP's se traduzcan a la IP de la interface de salida. Lo que identifica a cada una en este caso sería por el puerto de origen.
+        </p>
+
+        <img src="../img/cisco/topologia_basica/traducciones.jpg" alt="traducciones" width="700px">
+        <footer>
+            <cite>Luis Alejandro AM - 2022</cite>
+        </footer>
     </div>
+    
 </body>
 </html>

@@ -86,7 +86,7 @@ code{
     /* display: block; */
     white-space:pre-line;
     overflow-y: scroll;
-    height: 150px;
+    height: 100px;
     overflow-x: scroll;
 }
 
@@ -100,4 +100,12 @@ img{
     margin-top: 15px;
     margin-bottom: 15px;
     border: 2px solid;
+}
+
+footer{
+    text-align: right;
+    font-size: 20px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    margin-inline: 30px;
 }
