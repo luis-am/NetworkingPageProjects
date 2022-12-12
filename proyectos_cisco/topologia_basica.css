@@ -7,8 +7,8 @@
     flex-direction: column;
     justify-content: center;
     border: 2px solid;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 
@@ -43,7 +43,7 @@ h1{
     font-family: 'serif';
     font-size: 50px;
     /* font-style: oblique; */
-    color: yellow;
+    color: gray;
     font-weight: bold;
     text-decoration: underline;
 }
@@ -62,9 +62,10 @@ b{
 /* --------------------------------------------------------------------- */
 /* Modificando el texto del código. */
 code{ 
-    background-color: #f6f6f6;
+    background-color: #e6e6e6;
     color: black;
     font-family: monospace;
+    font-weight: bold;
     padding: 7px;
     margin: auto;
     margin-top: 30px;
